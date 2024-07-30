@@ -1,0 +1,46 @@
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { incrementQuantity, decrementQuantity, removeItem } from './cartSlice'; // Replace with your Redux slice actions
+
+const ShoppingCart = () => {
+  const cart = useSelector((state) => state.cart.items);
+  const dispatch = useDispatch();
+
+  const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+  const totalCost = cart.reduce((total, item) => total + item.price * item.quantity, 0);
+
+  const handleIncrement = (id) => {
+    dispatch(incrementQuantity(id));
+  };
+
+  const handleDecrement = (id) => {
+    dispatch(decrementQuantity(id));
+  };
+
+  const handleRemove = (id) => {
+    dispatch(removeItem(id));
+  };
+
+  return (
+    <div className="shopping-cart">
+      <h1>Shopping Cart</h1>
+      <div className="cart-summary">
+        <p>Total Items: {totalItems}</p>
+        <p>Total Cost: ${totalCost.toFixed(2)}</p>
+      </div>
+      <div className="cart-actions">
+        <button onClick={() => alert("Coming Soon")}>Checkout</button>
+        <Link to="/"><button>Continue Shopping</button></Link>
+      </div>
+      <div className="cart-items">
+        {cart.map((item) => (
+          <div key={item.id} className="cart-item">
+            <img src={item.thumbnail} alt={item.name} />
+            <div>
+              <h3>{item.name}</h3>
+              <p>Unit Price: ${item.price.toFixed(2)}</p>
+              <div className="item-controls">
+                <button onClick={() => handleDecrement(item.id)} disabled={item.quantity <= 1}>-</button>
+                <span>{item.quantity}</span>
+                <button onClick={() => handle
