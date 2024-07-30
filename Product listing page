@@ -1,0 +1,49 @@
+// Component for Product List
+const ProductList = ({ products }) => {
+  const [cart, setCart] = useState([]);
+  const [cartCount, setCartCount] = useState(0);
+
+  const addToCart = (product) => {
+    setCart([...cart, product]);
+    setCartCount(cartCount + 1);
+  };
+
+  return (
+    <div>
+      {products.map((product, index) => (
+        <div key={index}>
+          <img src={product.thumbnail} alt={product.name} />
+          <h3>{product.name}</h3>
+          <p>${product.price}</p>
+          <button
+            onClick={() => addToCart(product)}
+            disabled={cart.includes(product)}
+          >
+            {cart.includes(product) ? "Added to Cart" : "Add to Cart"}
+          </button>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+// Sample Product Data
+const products = [
+  { thumbnail: "plant1.jpg", name: "Succulent", price: 10 },
+  { thumbnail: "plant2.jpg", name: "Fern", price: 15 },
+  // Add more products here
+];
+
+// Main Component
+const App = () => {
+  return (
+    <div>
+      <nav>
+        <span>Cart: {cartCount}</span>
+      </nav>
+      <ProductList products={products} />
+    </div>
+  );
+};
+
+export default App;
