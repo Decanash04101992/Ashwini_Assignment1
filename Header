@@ -1,0 +1,28 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
+const Header = () => {
+  // Access cart state from Redux store (or any state management solution)
+  const cartCount = useSelector((state) => state.cart.items.length);
+
+  return (
+    <header>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Product Listing</Link>
+          </li>
+          <li>
+            <Link to="/cart">
+              Cart
+              <span className="cart-count">{cartCount}</span>
+            </Link>
+          </li>
+        </ul>
+      </nav>
+    </header>
+  );
+};
+
+export default Header;
