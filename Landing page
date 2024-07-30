@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>GreenThumb - Welcome</title>
+</head>
+<body>
+  <div class="landing-page">
+    <h1>GreenThumb</h1>
+    <p>At GreenThumb, we are passionate about bringing nature into your home with our carefully curated selection of unique houseplants. Our mission is to help you create a green oasis in any space, promoting wellness and joy through the beauty of plants.</p>
+    <a href="/products" class="get-started-button">Get Started</a>
+  </div>
+</body>
+</html>
