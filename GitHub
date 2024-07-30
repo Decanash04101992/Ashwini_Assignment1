@@ -1,0 +1,15 @@
+your-repo/
+│
+├── src/
+│   ├── components/
+│   │   ├── ProductList.js
+│   │   ├── ShoppingCart.js
+│   │   └── Header.js
+│   ├── redux/
+│   │   ├── store.js
+│   │   ├── cartSlice.js
+│   │   └── productSlice.js
+│   ├── App.js
+│   └── index.js
+├── README.md
+└── package.json
